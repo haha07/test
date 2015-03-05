@@ -1,0 +1,35 @@
+{
+	"type" : "FeatureCollection",
+	"features":[
+		{
+			"type":"Feature",
+			"id":1,
+			"geometry":{
+				"type":"Point",
+				"coordinates":[190284.2565,449947.747]
+			},
+			"properties":{
+					"name":"선주동",
+					"population":25067407,
+					"pop_0_14":47,
+					"pop_15_59":49.3,
+					"pop_60_above":3.7
+			}
+		},
+		{
+			"type":"Feature",
+			"id":2,
+			"geometry":{
+				"type":"Point",
+				"coordinates":[190182.866,448969.073]
+			},
+			"properties":{
+				"name":"준태동6가",
+				"population":3153731,
+				"pop_0_14":26.3,
+				"pop_15_59":61.4,
+				"pop_60_above":12.3
+			}
+		}
+	]
+}

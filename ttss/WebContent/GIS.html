@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GMap 지도 서비스</title>
+<link type="text/css" rel="stylesheet" href="css/jquery-ui/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+<link type="text/css" rel="stylesheet" href="css/map.css"/>
+<link type="text/css" rel="stylesheet" href="css/gmap/GMapStyle.css"/>
+<script type="text/javascript" src="lib/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="lib/jquery/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="lib/proj4js/proj4js-compressed.js"></script>
+<script type="text/javascript" src="lib/proj4js/defs/ginno.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Compressed.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayersCustom.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.Daum.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.Naver.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.NaverSatellite.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.NaverStreet.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.Vworld.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.VWorldHybrid.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.VWorldSatellite.js"></script>
+<script type="text/javascript" src="lib/OpenLayers/OpenLayers.Layer.VWorldStreet.js"></script>
+<script type="text/javascript" src="lib/gmap/GMap.js"></script>
+<script type="text/javascript" src="lib/gmap/lib/GMapParams.js"></script>
+<script type="text/javascript" src="lib/gmap/lib/GGetFeatureParams.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/map/map.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	fn_init_map();
+	
+	// 다이얼로그 생성
+	$("#dialog").dialog({
+    	width : "300", 
+    	height : "200", 
+    	autoOpen : false,
+		draggable : true,
+		resizable : false
+	});
+});
+</script>
+<style>
+	#controlDiv { position : absolute; right : 10px; top : 5px; }
+	#controlDiv a { margin-left : 10px; }
+	div.layerlst ul li label {font-weight : normal;}
+	div.olControlAttribution { right : 0px; bottom : 0.5em }
+</style>
+</head>
+
+<body> 
+	<div id="dialog">
+		<ul id="textArea" class="leftresult"></ul>
+	</div>
+	<div id="wrap">
+		<!-- header start -->
+		<div id="header">
+			<div class="logo" style="background-color : white; height : 30px; right : 20px;"><span style="text-align : center;"><h1 style="font-weight : bold; font-size : 24px;">GMap 지도 서비스</h1></span></div>
+            <span class="mapTitle"><span>기본지도</span></span>
+			
+            <p class="mapbt">
+                <a href="#" id="aa"><img src="images/map/btn_selmap01_on.png" alt="" /></a>
+				<a href="#" id="bb"><img src="images/map/btn_selmap02_off.png" alt="" /></a>
+            </p>
+			<div id="controlDiv">
+				<div id="advancedButtonGroup" style="display : none;">
+					<a href="#" id="btndrag"><img src="./images/map/btn/btn_map_move.gif" alt="drag"></a>
+					<a href="#" id="btnzoomIn"><img src="./images/map/btn/btn_map_zoomIn.gif" alt="zoomIn">
+					</a><a href="#" id="btnzoomOut"><img src="./images/map/btn/btn_map_zoomOut.gif" alt="zoomOut">
+					</a><a href="#" id="btnmaxExtent"><img src="./images/map/btn/btn_map_maxExtent.gif" alt="maxExtent">
+					</a><a href="#" id="btnprev"><img src="./images/map/btn/btn_map5.gif" alt="prev"></a>
+					<a href="#" id="btnnext"><img src="./images/map/btn/btn_map6.gif" alt="next"></a>
+					<!--<a href="#" id="btnclean"><img src="./images/map/btn/btn_map_clean.gif" alt="clean"></a>
+					<a href="#" id="btnmeasurePath"><img src="./images/map/btn/btn_map_measureLine.gif" alt="measurePath"></a>
+					<a href="#" id="btnmeasurePolygon"><img src="./images/map/btn/btn_map_measurePolygon.gif" alt="measurePolygon"></a> -->
+					<a href="#" id="btndrawPoint"><img src="./images/map/btn/btn_drawing4_on.gif" alt="drawPoint"></a>
+					<a href="#" id="btndrawLine"><img src="./images/map/btn/btn_drawing_line_on.gif" alt="drawLine"></a>
+					<a href="#" id="btndrawPolygon"><img src="./images/map/btn/btn_drawing_polygon.gif" alt="drawPolygon"></a> 
+				</div>
+			</div>
+
+		</div>
+		<!-- header end  -->
+		
+		<!-- container start -->
+		<div id="container">
+            <h2 class="hidden">본문컨텐츠-지도</h2>
+			
+            <h2 class="hidden">메인메뉴</h2>
+            <div id="left" style="z-index : 1000;"> 
+                <div class="leftBtArea">
+                    <a href="#" id="leftCloseBt"  onclick="leftClose()"><img src="images/map/btn_leftclose.gif" alt="닫기" /></a>
+                    <a href="#" class="hidden" id="leftOpenBt" onclick="leftOpen()"><img src="images/map/btn_leftclose.gif" alt="열기" /></a>
+                </div>       
+                <div class="leftCont">
+					<div class="leftsch">
+                        <input  id="search_query" type="text" class="iptxt" style="width:190px"/>
+                        <a href="#" id="search_btn"><img src="images/map/btn_opt_sch.gif" alt="검색" /></a>
+                    </div>
+                    <div class="mt10">
+                        <h2 class="leftresultTit"><span class="btxt">검색 </span>결과 <span class="num"><strong id="queryCnt"></strong> 건</span></h2>
+                        <div class="resultBx">
+                            <ul class="leftresult">
+                                <!-- <li>서울시청</li> -->
+                            </ul>
+                        </div>                      
+                    </div>
+				</div>
+
+            </div>
+            <!-- //cont -->
+            <!--  지도영역 -->
+            <div id="map">					
+			    <ul class="map_control" style="z-index : 2000; right : -62px">
+				    <li><a href="#" id="btnmeasurePath"><img src="images/map/map_control01.png" alt="거리" /></a></li>
+				    <li><a href="#" id="btnmeasurePolygon"><img src="images/map/map_control02.png" alt="면적" /></a></li>
+                    <li><a id="getFeature" href="#"><img src="images/map/map_control05.png" alt="정보" /></a></li>
+					<li id="btnRadiusSearch">
+                    	<div>
+	                   		<a id="search-state" href="#"><img src="images/map/map_control_default.png" alt="반경검색" /></a>
+							<div id="search-container" style="float : right; width : 70px; display: inline; visibility : hidden; position: relative; right: 103px;">
+		                    	<a id="search-400m" href="#"><img style="float : right;"src="images/map/map_control_400_horizental.png" alt="400m 검색" /></a>
+		                    	<a id="search-800m" href="#"><img style="float : right;"src="images/map/map_control_800_horizental.png" alt="800m 검색" /></a>
+                    		</div>
+                    	</div>
+                    </li>
+				    <li><a href="#" onclick="fn_save_map();"><img src="images/map/map_control03.png" alt="인쇄" /></a></li>
+				    <li><a href="#" id="btnclean"><img src="images/map/map_control04.png" alt="초기화" /></a></li>
+			    </ul>
+                <div class="index" style="z-index : 1000;">	
+                    <div class="btArea" style="z-index : 2000;">
+                        <a href="#" id="indexOffBt"  onclick="indexClose()"><img src="images/map/index_on.png" alt="닫기" /></a>
+                        <a href="#" class="hidden" id="indexOnBt" onclick="indexOpen()"><img src="images/map/index_off.png" alt="열기" /></a>
+                    </div> 
+                    <div class="indexmap">
+                        <div class="mapArea"></div>
+                        <select id="scale" style="width:161px; z-index:2000;" onchange="fn_move_sacle(this);">
+							<option value="1000">1:1000</option>
+                        	<option value="5000">1:5000</option>
+                        	<option value="10000">1:10000</option>
+                        	<option value="20000">1:20000</option>
+                        	<option value="50000">1:50000</option>
+                        	<option value="100000">1:100000</option>
+                        	<option selected value="200000">1:200000</option>
+						</select>
+                    </div> 
+                </div>
+
+                <div class="layer" style="z-index : 1000;">
+                    <div class="btArea">
+                        <a href="#" id="layerOffBt"  onclick="layerClose()"><img src="images/map/layer_on.png" alt="닫기" /></a>
+                        <a href="#" class="hidden" id="layerOnBt" onclick="layerOpen()"><img src="images/map/layer_off.png" alt="열기" /></a>
+                    </div> 
+                    <div class="layerbx">
+                        <h2>레이어</h2>
+                        <div class="layerlst">
+							<ul class="leftresult">
+                                <li><div><label><input type="checkbox" name="layer" value="CML_BADM_A" /> CML_BADM_A</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://203.236.216.158:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=CML_BADM_A&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+								<li><div><label><input type="checkbox" name="layer" value="SHP_WATER" /> SHP_WATER</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://localhost:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=SHP_WATER&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+								<li><div><label><input type="checkbox" name="layer" value="RDL_RDSR_A" /> RDL_RDSR_A</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://localhost:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=RDL_RDSR_A&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+								<li><div><label><input type="checkbox" name="layer" value="BML_BLDG_AS" /> BML_BLDG_AS</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://localhost:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=BML_BLDG_AS&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+								<li><div><label><input type="checkbox" name="layer" value="WTL_PIPE_L" /> WTL_PIPE_L</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://localhost:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=WTL_PIPE_L&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+								<li><div><label><input type="checkbox" name="layer" value="WTL_VALVE_P" /> WTL_VALVE_P</label></div>
+									<a href="#" onClick="fn_legend(this); return false">[범례]</a>
+									<div style="display:none"><img src="http://localhost:8080/G2DataService/GService?Service=WMS&Version=1.3.0&Request=GetLegendGraphic&Layer=WTL_VALVE_P&Width=19&Height=19&Format=image/png&SLD_VERSION=1.1.0"/></div>
+								</li>
+							</ul>
+                        </div>
+                    </div> 
+                </div>
+            </div><!-- //map -->
+		</div><!-- container end -->
+		<!-- 맵 저장 임시 form -->
+		<form id="saveForm" method="post">
+			<input type="hidden" id="datas" name="datas" />
+		</form>
+	</div><!-- wrap end -->
+</body>
+</html>

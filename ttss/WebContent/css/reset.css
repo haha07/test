@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+body, div, ul, li, ol, dl, dt, dd, p, span, a, h1, h2, h3, h4, h5, h6, 
+form, legend, label, input, textarea, 
+table, thead, tfoot, tbody, th, td, address, strong, em, pre, q, abbr, cite {margin: 0; padding: 0;}
+
+html {overflow-y:scroll; height:100%;}
+body {height:100%; color:#666; font-family:'돋움', Dotum, Arial, sans-serif; font-size:75%;}
+
+img {border:0; vertical-align:top;}
+ul, ol {list-style-type: none;}
+h1, h2, h3, h4, h5, h6 {font-size:100%; font-weight:normal;}
+fieldset, hr {border: 0; margin: 0; padding: 0;}
+label, select, input, textarea {vertical-align:middle;  font-family:"돋움",Dotum;} 
+table {border-collapse:collapse;}
+table td img {vertical-align:middle;}
+
+a:link, a:visited {color:#666666; text-decoration:none;}
+a:hover, a:active, a:focus {color:#333333; text-decoration:none;}
+
+address {font-style:normal;}
+hr {clear:both; display:none;}
+caption, legend {font-size:0; height:0; line-height:0; overflow:hidden; visibility:hidden; width:0;}
+.hidden {font-size:0; height:0; line-height:0; overflow:hidden; position:absolute; visibility:hidden; width:0;}
+h2.hidden {display:none;}
+
+/* From Style */
+select {height:20px;}
+textarea {padding:5px; font-size:12px;}
+input.text {padding:2px 0 0 5px; border:1px solid #D4D4D4; height:16px; border:1px solid #bdbdbd;}
+input.radio {margin:0 5px 0 0; width:13px; height:13px;}
+input.check {margin:0 5px 0 0; width:13px; height:13px;}
+button {border:0; padding:0; overflow:auto; background:transparent; cursor:pointer;}
+
+/*common */
+.al {text-align:left !important;}
+.ac {text-align:center !important;}
+.ar {text-align:right !important;}

@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+/*a:focus  {outline:3px solid green;}*/
+
+/* skip_navigation */
+#skipnavi {position:relative; z-index:9999;}
+#skipnavi a {position:absolute; top:-10000px;}
+#skipnavi a:hover, #skipnavi  a:active, #skipnavi a:focus 
+{display:block; font-size:1.3em; font-weight:bold; padding:15px; background-color:#fff; border: 3px solid #ededed; position:absolute; top:0px; left:45%;}
+
+form {height:100%;}
+
+.fl {float:left}
+.fr {float:right}
+.w100{width:100%}
+.mt10{margin-top:10px}
+.mt20{margin-top:20px}
+.ptTop{padding-top:41px;}
+
+
+/* layout */
+#wrap {height:100%;min-height:700px;background:url(../images/common/bg_body.gif) 0 0 repeat-x;}
+#header {width:1000px; margin:0 auto; height:127px; position:relative; z-index:999; overflow:hidden;background:url(../images/common/bg_header.jpg) 0 0 no-repeat;}
+#container {width:1000px; margin:-127px auto 0px auto; position:relative;}
+#container.bg {background:url(../images/common/bg_container.gif) 0 0 repeat-y;}
+#container:after {content:""; clear:both; display:block; visibility:hidden; font-size:0; height:0;}
+#container .aside {float:left; width:240px; padding:127px 0 0 0;}
+#container #contents {float:right; width:720px; padding:135px 0 50px 0; position:relative;}
+
+#footer {clear:both;  background:#ccc7c0;}
+
+/* footer */
+#footer .footerIn {width:1000px; height:25px; padding-top:10px; overflow:hidden; margin:0 auto;text-align:center}
+
+
+/* header */
+#header h1 {position:absolute; top:25px; left:0px; width:350px; height:38px;}
+
+#header #gnb {position:absolute; width:1000px; top:64px;background-image:url(../images/common/bg_gnb.jpg);}
+#header #gnb > p{ float:left;color:#effdca;margin-top:18px;margin-left:20px;}
+#header #gnb > p strong{color:#ffffff;padding-right:30px;font-size:11px;}
+#header #gnb > ul{width:680px; height:40px; float:right}
+#header #gnb > ul:after {content:""; clear:both; display:block; visibility: hidden; font-size:0;  height: 0;}
+#header #gnb > ul > li {float:left; position:relative;}
+#header #gnb > ul > li > a {display:block; height:40px; background-image:url(../images/common/gnb.png);}
+#header #gnb > ul > li > a.menu1 {width:100px; background-position:0px 0px;}
+#header #gnb > ul > li > a.menu1:hover,
+#header #gnb > ul > li.active > a.menu1 {width:100px; background-position:0px 40px;}
+#header #gnb > ul > li > a.menu2 {width:87px; background-position:-100px 0px;}
+#header #gnb > ul > li > a.menu2:hover,
+#header #gnb > ul > li.active > a.menu2 {width:87px; background-position:-100px 40px;}
+#header #gnb > ul > li > a.menu3 {width:112px; background-position:-187px 0px;}
+#header #gnb > ul > li > a.menu3:hover, 
+#header #gnb > ul > li.active > a.menu3 {width:112px; background-position:-187px 40px;}
+#header #gnb > ul > li > a.menu4 {width:87px; background-position:-299px 0px;}
+#header #gnb > ul > li > a.menu4:hover,
+#header #gnb > ul > li.active > a.menu4 {width:87px; background-position:-299px 40px;}
+
+.location {position:absolute; right:12px;bottom:10px;}
+.location span {padding:0 14px 0 4px; color:#fff; font-size:11px; background:url(../images/common/bul_white_arrow.gif) right 0 no-repeat;}
+.location strong {padding:0 0px 0 4px; color:#fff; font-size:11px; font-weight:normal;}
+
+/* leftmenu */
+#lnb > ul{width:238px; height:260px;}
+#lnb > ul:after {content:""; clear:both; display:block; visibility: hidden; font-size:0;  height: 0;}
+#lnb > ul > li {float:left; position:relative;}
+#lnb > ul > li > a {display:block;width:238px; height:65px; background-image:url(../images/common/lnb.gif);}
+#lnb > ul > li > a.menu1 {background-position:0px 0px;}
+#lnb > ul > li > a.menu2 {background-position:0px -65px;}
+#lnb > ul > li > a.menu3 {background-position:0px -130px;}
+#lnb > ul > li > a.menu4 {background-position:0px -195px;}
+
+.aside {width:238px;}
+.aside h2 {border-bottom:2px solid #484848;margin-bottom:3px;font-size:18px;font-family:NanumGothic,'³ª´®°íµñ','Nanum Gothic','µ¸¿ò',dotum,sans-serif;font-weight:bold;height:35px;padding:30px 0 0 5px;background:#fff}
+#asideCont {font-size:12px;margin-bottom:30px;}
+
+.policyInfo{padding:0 13px;line-height:16px;}
+.policyInfo span{display:block; padding-top:15px; }
+.policyInfo > span> strong{color:#003366}
+.sns{text-align:right;padding:10px 10px 20px 0}
+.sns span{color:#fd5f51; font-weight:bold;line-height:23px}
+
+.policyCon{margin:0 13px;}
+.policyCon dt{font-family:NanumGothic,'³ª´®°íµñ','Nanum Gothic','µ¸¿ò',dotum,sans-serif;font-size:16px;background:url(../images/common/bul_gray_arrow.gif) 0 2px no-repeat;padding-left:20px;color:#000;font-weight:bold;margin-top:20px;}
+.policyCon dd{padding-top:5px;line-height:16px;}
+
+.policyCon dd li{line-height:20px;}
+
+
+

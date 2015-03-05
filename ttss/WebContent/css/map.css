@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+
+/*a:focus  {outline:3px solid green;}*/
+
+/* skip_navigation */
+#skipnavi {position:relative; z-index:9999;}
+#skipnavi a {position:absolute; top:-10000px;}
+#skipnavi a:hover, #skipnavi  a:active, #skipnavi a:focus 
+{display:block; font-size:1.3em; font-weight:bold; padding:15px; background-color:#fff; border: 3px solid #ededed; position:absolute; top:0px; left:45%;}
+
+form {height:100%;}
+
+.fl {float:left}
+.fr {float:right}
+.w100{width:100%}
+.mt5{margin-top:5px}
+.mt10{margin-top:10px}
+.mt20{margin-top:20px}
+.pd0{padding:0;margin:0}
+.clear{clear:both; }
+.dpib{display:inline-block}
+.pl10{padding-left:10px;}
+
+
+/* layout */
+#wrap {height:100%;min-height:785px;width:100%;overflow:hidden;min-width:980px;}
+#header {top:0;left:0px;right:0;height:84px; position:absolute; z-index:9; overflow:hidden;background:url(../images/map/bg_header.png) 0 0 repeat-x;min-width:980px;}
+#container {width:100%; min-height:100%; position:relative;min-width:980px;}
+#map {top:84px;bottom:0px; left:0px; right:0; position:absolute;overflow:hidden;min-width:980px;}
+#left{width:302px;position:absolute;top:84px;left:0px;bottom:0;z-index:99;background:url(../images/map/bg_left.png) left 0 repeat-y;overflow:hidden}
+
+
+/* header */
+#header .logo {position:absolute; top:10px; left:20px;}
+#header .mapbt {position:absolute; right:10px; bottom:5px;}
+#header .mapTitle{font-family:NanumGothic,'³ª´®°íµñ','Nanum Gothic','µ¸¿ò',dotum,sans-serif; font-weight:bold; font-size:14px;color:#ffff66;position:absolute; left:10px; bottom:8px;}  
+
+/* LNB */
+.leftCont{}
+.leftBtArea{position:absolute; top:0;right:0;z-index:99}
+
+
+.leftsch {background:#3c5984; margin:15px;width:245px;padding:5px;border:1px solid #333;}
+.leftsch .iptxt {color:#4d4d4d; padding:0 2px; font-size:11px; line-height:25px; height:25px; border:1px solid #aaaaaa;}
+.leftresultTit{background:#eeeeee url(../images/map/bg_searchresult.gif) 0 bottom no-repeat;height:26px; border-bottom:1px solid #43547b; line-height:30px;padding-left:28px;font-weight:bold;width:230px;margin:0 15px; }
+.leftresultTit .btxt{color:#43547b}
+.leftresultTit span.num{float:right;font-weight:normal;padding-right:10px;}
+.leftresultTit span strong{color:#43547b;font-weight:bold }
+.leftresult{}
+.leftresult li{line-height:18px;background:url(../images/map/bg_dotline.gif) 0 bottom repeat-x;padding:5px;font-weight:bold;color:#43547b;}
+
+.iptxt {color:#4d4d4d; padding:0 2px; font-size:11px; line-height:18px; height:18px; border:1px solid #aaaaaa;}
+.resultBx{overflow-y:auto;width:260px;margin:0 15px;height:500px;overflow-x:hidden;}
+ 
+/*map*/
+#map .map_control {position:absolute; right:11px; top:290px; z-index:8;}
+#map .map_scale {position:absolute; right:11px; top:5px; z-index:8;background:url(../images/map/bg_bar.png) 0 0 no-repeat;width:32px;height:170px;}
+#map .map_scale .plus{position:absolute;left:5px;top:5px;}
+#map .map_scale .minus{position:absolute;left:5px;bottom:6px;}
+#map .map_scale .pbx{position:relative;margin:24px 0 25px 0;height:118px;}
+#map .map_scale .pointer{position:absolute;left:9px;top:15px;}
+#map .index{position:absolute; right:47px; top:4px; z-index:8;width:179px;height:159px;}
+#map .index .btArea{position:absolute; top:1px;right:3px;z-index:99}
+#map .indexmap{background:url(../images/map/bg_index.png) 0 0 no-repeat;width:165px;height:145px;padding:7px}
+.mapArea{border:1px solid #52545d; width:161px; height:117px;margin-bottom:5px }
+
+#map .layer{position:absolute; right:47px; top:170px; z-index:8;width:179px;height:419px;}
+#map .layer .btArea{position:absolute; top:1px;right:3px;z-index:99}
+#map .layerbx{background:url(../images/map/bg_layer.png) 0 0 no-repeat;width:165px;height:405px;padding:7px}
+#map .layerbx h2{margin-top:5px; line-height:18px; padding-left:15px; color:#43547b; font-weight:bold; background:url(../images/map/bul_h2.gif) 5px 5px no-repeat;}
+.layerlst{border:1px solid #ddd;overflow-y:auto;height:360px;padding:5px 10px;width:141px;}
+
+
+/* ÆË¾÷ */
+.bgnone {background:none;}
+.popup .pop_top {padding:10px 10px 8px 15px; border:1px solid #000000; color:#fff; font-weight:bold; letter-spacing:-1px; background:url(../images/common/bg_popuptit.gif) 0px 0px repeat-x;}
+.popup .pop_top img{float:right}
+.popup .p_cont {padding:10px;border-bottom:1px solid #59647e;border-left:1px solid #59647e;border-right:1px solid #59647e;}
+.p_img{border:1px solid #000}
+.p_btn {text-align:center; padding:10px 35px 0 35px;}
+.p_btn p {padding:20px 0px;}
+h4.pTit {margin-bottom:5px; line-height:18px; padding-left:20px; color:#333; font-weight:bold; background:url(../images/common/bul_ph4.gif) 0 1px no-repeat;}

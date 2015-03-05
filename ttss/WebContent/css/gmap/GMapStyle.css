@@ -1,0 +1,245 @@
+/*
+ * GPopup padding 5px 에서 0px 로 수정
+ */
+.olPopupContent {
+    padding:0px;
+    overflow: hidden;
+}
+
+/*
+ * 거리, 면적 측정 Style
+ */
+div.olControlMeasurePopup {
+	text-align:center;
+	vertical-align: middle;
+	border: 1px solid #ff8000;
+	background: #ffffff;
+	color: #000000;
+	font:11px/18px 굴림;
+	overflow : hidden;
+	height:20px;
+}
+
+div.olControlMeasureContent {
+	vertical-align: middle;
+	border: 1px solid #ff8000;
+	background: #ffffff;
+	color: #000000;
+	font:11px/18px 굴림;
+	overflow : hidden;
+	width:140px;
+}
+
+div.olControlMeasureContent div.measureDist {
+	padding:5px 10px 0px 10px;
+	font:11px 굴림;
+}
+
+div.olControlMeasureContent span.measureResTit {
+	display : inline-block;
+	width:50px;
+}
+
+div.olControlMeasureContent span.measureResCon {
+	color:#ff0000;
+	font:11px 굴림;
+}
+
+div.olControlMeasureContent div.MeasureAllDist {
+	padding:5px 10px;
+	font:11px 굴림;
+}
+
+div.olControlMeasureContent div.MeasureAllArea {
+	padding:5px 10px;
+	font:11px 굴림;
+}
+
+div.olControlMeasureContent div.MeasureEndDescript {
+	background-color:#898989;
+	padding:5px 10px;
+	color:#ffffff;
+	font:11px 굴림;
+}
+
+div.olControlMeasureClose {
+	height:10px;
+	width:10px;
+}
+
+div.olControlMeasureClose img {
+	vertical-align:top;
+	cursor:pointer;
+}
+
+div.olControlMeasurePopupDefault {
+	width:60px;
+}
+
+div.olControlMeasurePopupStart {
+	width:36px;
+}
+
+div.olControlCircleAttr {
+	width:60px;
+}
+
+div.olControlMeasurePopupEnd {
+	width:98px;
+}
+
+div.olControlMeasurePopupDefaultPoly {
+	width:70px;
+}
+
+div.olControlMeasurePopupEndPoly {
+	width:140px;
+}
+
+span.MeasureColor {
+	color: #ec1313;
+}
+
+/*
+ * 인덱스 맵 스타일
+ */
+.olIndexMap {
+	position: absolute;
+	background-color : #ffffff;
+	width: 200px;
+	height: 152px;
+	z-index: 1001;
+	border : solid 1px #d4d8dd;
+	
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	border-radius: 4px;
+}
+
+/*
+ * Handler Box 스타일
+ */
+.olHandlerBoxZoomBox {
+    border: 2px solid red;
+    position: absolute;
+    background-color: #ffffff;
+    opacity: 0.50;
+    font-size: 1px;
+    filter: alpha(opacity=50);
+}
+
+
+
+
+
+
+
+
+/* 그리기 도구 텍스트 입력 창 스타일
+ *  <div class="olControlDrawInputText">
+		<textarea class="olControlDrawInputTextArea"></textarea>
+		<img class='olControlDrawInputTextConfirm' src='/images/GMap/Draw/btn_submit.gif' alt='확인' title='확인' />
+		<img class='olControlDrawInputTextCancel' src='/images/GMap/Draw/btn_close.gif' alt='닫기' title='닫기' />
+	</div>
+ */
+
+.olControlDrawInputText {
+	position : relative;
+	width : 360px;
+	border : 1px solid #768349;
+	background-color : #ffffff;
+	margin-left : 1px;
+	z-index : 999;
+	overflow : hidden;
+}
+
+.olControlDrawInputText .olControlDrawInputTextArea {
+	width:310px;
+	height:50px
+}
+
+.olControlDrawInputText .olControlDrawInputTextConfirm {
+	position:absolute;
+	bottom:1px;
+	right:2px;
+}
+
+.olControlDrawInputText .olControlDrawInputTextCancel {
+	position:absolute;
+	top:2px;
+	right:2px;
+}
+
+
+/* 그리기 도구 텍스트 창 스타일
+ *  <div class='olControlDrawText'></div> 
+ */
+
+.olControlDrawText {
+	padding : 3px 5px;
+	background : #ffffff;
+	font-family : dotum;
+	font-size : 12px;
+	color : #000000;
+	cursor : pointer;
+}
+
+.olControlDrawText.on {
+	border : 1px solid #0000ff;
+}
+
+.olControlDrawText.off {
+	border : 1px solid #000000;
+}
+
+
+.olControlScaleLine {
+		left: 10px;
+		bottom: 15px;
+		font-size: xx-small;
+}
+.olControlScaleLineBottom {
+		border: solid 2px black;
+		border-bottom: none;
+		margin-top:-2px;
+		text-align: center;
+}
+.olControlScaleLineTop {
+	 	border: solid 2px black;
+		border-top: none;
+		text-align: center;
+}
+
+
+.acssAttr {
+	 position:absolute;
+	 left:0px;
+	 right:0px;
+	 width:80px;
+	 height:40px;
+	 z-index:999;
+	 background-color:#ffffff;
+	 border:1px solid #000000;
+	 padding:5px;
+	 color:#666666;
+	 display:none;
+}
+
+.acssAttr span.titLyr {
+	color : #0000ff;
+}
+
+.acssAttr span.tit {
+	color : #497cc9;
+}
+
+#legendMng .legendGraphic {
+	display:inline-block;
+	width:16px;
+	height:16px;
+	vertical-align: middle;
+	padding-right:5px;
+}
+
+
+
